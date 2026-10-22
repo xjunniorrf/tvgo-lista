@@ -35,8 +35,19 @@ jobs:
       - name: Instalar navegador de Playwright
         run: npx playwright install --with-deps chromium
 
+      - name: Ubicación del runner
+        run: curl -s https://ipinfo.io/json | grep -E '"(country|region|org)"' || true
+
       - name: Obtener token
         run: node obtener_token.js
+
+      - name: Subir diagnóstico
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: diagnostico
+          path: debug/
+          retention-days: 7
 
       - name: Actualizar lista M3U
         run: node actualizar_lista.js
