@@ -1,0 +1,3 @@
+#EXTM3U
+#EXTINF:-1 tvg-id="AmericaTV.pe" tvg-name="América TV" tvg-country="PE" tvg-language="Spanish" group-title="Perú",América TV
+{{TOKEN_URL}}

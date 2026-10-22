@@ -1,0 +1,14 @@
+{
+  "name": "tvgo-token",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Captura el token MDSTRM de TVGO y genera lista.m3u",
+  "scripts": {
+    "token": "node obtener_token.js",
+    "lista": "node actualizar_lista.js",
+    "start": "node obtener_token.js && node actualizar_lista.js"
+  },
+  "dependencies": {
+    "playwright": "1.48.2"
+  }
+}
