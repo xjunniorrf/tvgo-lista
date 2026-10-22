@@ -15,7 +15,7 @@ concurrency:
 jobs:
   actualizar:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 8
 
     steps:
       - name: Clonar repositorio
@@ -32,8 +32,8 @@ jobs:
       - name: Instalar dependencias
         run: npm ci
 
-      - name: Instalar navegador de Playwright
-        run: npx playwright install --with-deps chromium
+      - name: Versión de Google Chrome del runner
+        run: google-chrome --version
 
       - name: Ubicación del runner
         run: curl -s https://ipinfo.io/json | grep -E '"(country|region|org)"' || true

@@ -28,7 +28,9 @@ function ocultarTokens(texto) {
   const log = [];
   const registrar = (linea) => log.push(new Date().toISOString() + ' ' + ocultarTokens(linea));
 
-  const browser = await chromium.launch({ headless: true });
+  // channel 'chrome' usa el Google Chrome ya instalado (en los runners de GitHub
+  // viene de serie), así no hay que descargar Chromium en cada ejecución
+  const browser = await chromium.launch({ headless: true, channel: 'chrome' });
   let page;
   try {
     const context = await browser.newContext({
